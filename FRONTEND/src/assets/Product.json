@@ -1,5 +1,5 @@
-{
-    "Products": [
+
+[
         {
             "ref": "x1",
             "libelle": "linux",
@@ -15,5 +15,4 @@
             "libelle": "anuglar",
             "prix": 12
         }
-    ]
-}
+]

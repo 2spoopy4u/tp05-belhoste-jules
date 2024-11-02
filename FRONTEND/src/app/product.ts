@@ -3,3 +3,4 @@ export class Product {
     libelle: string;
     prix: number;
 }
+
