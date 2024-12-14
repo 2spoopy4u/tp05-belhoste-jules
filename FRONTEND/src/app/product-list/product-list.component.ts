@@ -5,6 +5,7 @@ import { ListBrowserComponent } from '../list-browser/list-browser.component';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngxs/store';
+import { AddProduct } from '../shared/action/app.action';
 
 @Component({
   selector: 'app-product-list',
@@ -21,6 +22,10 @@ export class ProductListComponent implements OnInit {
   ngOnInit() {
     this.backendReader.filter().subscribe();
     this.productList = this.backendReader.allProducts;
+  }
+  addToCart(){
+    let i =0;
+    this.store.dispatch(new AddProduct(this.productList?[i]))
   }
 
 }
