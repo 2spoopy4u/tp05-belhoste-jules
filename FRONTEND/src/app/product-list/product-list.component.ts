@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendReaderService } from '../backend-reader.service';
-import { Product } from '../product';
+import { Product } from '../shared/model/product';
 import { ListBrowserComponent } from '../list-browser/list-browser.component';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { Store } from '@ngxs/store';
+
 @Component({
   selector: 'app-product-list',
   standalone: true,
@@ -13,7 +15,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductListComponent implements OnInit {
   productList?: Observable<Product[]>;
-  constructor(private backendReader: BackendReaderService) {
+  constructor(private backendReader: BackendReaderService, private store:Store) {
     this.productList = new Observable<Product[]>();
   }
   ngOnInit() {

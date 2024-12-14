@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Product } from './product';
+import { Product } from './shared/model/product';
 import { Observable } from 'rxjs/internal/Observable';
 import { BehaviorSubject, filter, map } from 'rxjs';
 
