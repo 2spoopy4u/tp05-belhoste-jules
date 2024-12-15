@@ -1,3 +1,4 @@
+import { CartProduct } from '../model/cart-product';
 import { Product } from '../model/product';
 
 export class GetUsers {
@@ -7,11 +8,11 @@ export class GetUsers {
 export class AddProduct {
   static readonly type = '[Product] Add';
 
-  constructor(public payload: Product) {}
+  constructor(public payload: CartProduct) {}
 }
 
 export class DelProduct {
   static readonly type = '[Product] Del';
 
-  constructor(public payload: Product) {}
+  constructor(public payload: CartProduct) {}
 }

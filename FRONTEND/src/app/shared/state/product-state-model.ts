@@ -1,4 +1,4 @@
-import { Product } from '../model/product';
+import { CartProduct } from '../model/cart-product';
 export class ProducttateModel {
-  products: Product[] = [];
+  products: CartProduct[] = [];
 }

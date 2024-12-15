@@ -9,6 +9,7 @@ import {
 import { AddProduct, DelProduct } from '../action/app.action';
 import { ProducttateModel } from './product-state-model';
 import { Product } from '../model/product';
+@Injectable()
 @State<ProducttateModel>({
   name: 'products',
   defaults: {
@@ -19,6 +20,7 @@ import { Product } from '../model/product';
 export class ProductState {
   @Selector()
   static getNbProducts(state: ProducttateModel) {
+    console.log(state.products.length)
     return state.products.length;
   }
 
@@ -46,7 +48,7 @@ export class ProductState {
     const state = getState();
     patchState({
       products: state.products.filter(
-        (x) => !(payload.libelle == x.libelle)
+        (x) => !(payload.id == x.id)
       ),
     });
   }

@@ -6,7 +6,8 @@ import { ProductState } from './shared/state/products-state';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),
+  providers: [ 
+    provideRouter(routes),
     importProvidersFrom(NgxsModule.forRoot([ProductState]))
   ]
 };
