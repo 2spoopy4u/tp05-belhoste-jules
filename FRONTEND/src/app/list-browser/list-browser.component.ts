@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BackendReaderService } from '../backend-reader.service';
+import { Subject, takeUntil } from 'rxjs';
 @Component({
   selector: 'app-list-browser',
   standalone: true,
@@ -12,10 +13,16 @@ import { BackendReaderService } from '../backend-reader.service';
 export class ListBrowserComponent {
   @Input('filterField')filterField : string;
   filteredValue:string;
+  private destroy$ = new Subject<void>();
   constructor(private backendReader: BackendReaderService) {}
   
   public filterEvent(){
     this.backendReader.setFilter(this.filterField,this.filteredValue);
-    this.backendReader.filter().subscribe();
+    this.backendReader.filter().pipe(takeUntil(this.destroy$)).subscribe();
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next(); 
+    this.destroy$.complete(); 
   }
 }

@@ -20,7 +20,6 @@ import { Product } from '../model/product';
 export class ProductState {
   @Selector()
   static getNbProducts(state: ProducttateModel) {
-    console.log(state.products.length)
     return state.products.length;
   }
 

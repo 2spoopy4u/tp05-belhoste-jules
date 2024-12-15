@@ -10,14 +10,6 @@ import { CommonModule } from '@angular/common';
   imports: [RouterOutlet, RouterLink, CommonModule, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-
-  /*template:`
-  <body>
-    <app-header></app-header>
-    <app-product-list/>
-    <app-footer></app-footer>
-  </body>
-  `,  styleUrl: './app.component.css'*/
 })
 export class AppComponent {
   constructor(private route:ActivatedRoute){}
